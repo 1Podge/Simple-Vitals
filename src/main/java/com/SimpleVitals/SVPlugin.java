@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 @PluginDescriptor(
         name = "Simple Vitals",
-        description = "Displays vitals and stats directly over your character",
+        description = "Keep track of your hiptpoints, prayers, buffs and debuffs!",
         tags = {"combat", "overlay", "stats", "vitals"}
 )
 public class SVPlugin extends Plugin

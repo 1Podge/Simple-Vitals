@@ -8,7 +8,7 @@ import net.runelite.api.gameval.VarbitID;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum PrayerIcon {
+public enum SVPrayerIcon {
     THICK_SKIN(Prayer.THICK_SKIN, SpriteID.Prayeron.THICK_SKIN),
     BURST_OF_STRENGTH(Prayer.BURST_OF_STRENGTH, SpriteID.Prayeron.BURST_OF_STRENGTH),
     CLARITY_OF_THOUGHT(Prayer.CLARITY_OF_THOUGHT, SpriteID.Prayeron.CLARITY_OF_THOUGHT),
@@ -92,7 +92,7 @@ public enum PrayerIcon {
     private final Prayer prayer;
     private final int spriteId;
 
-    PrayerIcon(Prayer prayer, int spriteId) {
+    SVPrayerIcon(Prayer prayer, int spriteId) {
         this.prayer = prayer;
         this.spriteId = spriteId;
     }
@@ -106,11 +106,11 @@ public enum PrayerIcon {
         return client.isPrayerActive(prayer) && isEnabled(client);
     }
 
-    private static final PrayerIcon[] VALUES = values();
+    private static final SVPrayerIcon[] VALUES = values();
 
     static List<Integer> activeSpriteIds(Client client) {
         List<Integer> ids = new ArrayList<>();
-        for (PrayerIcon icon : VALUES) {
+        for (SVPrayerIcon icon : VALUES) {
             if (icon.isActive(client)) {
                 ids.add(icon.spriteId);
             }

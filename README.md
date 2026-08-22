@@ -3,7 +3,7 @@
 </p>
 
 # **SIMPLE VITALS**
-Keep track of your hiptpoints, prayers, buffs and debuffs !
+Keep track of your hiptpoints, prayers, buffs and debuffs!
 
 
 ### Features
@@ -15,7 +15,6 @@ Keep track of your hiptpoints, prayers, buffs and debuffs !
 * If the Prayer icons options is active it will show the icon of each prayer you have active
 * The HUD will remain centered around your character, unless you choose to change the offset values
 
-### In-game and menu examples
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+### Menu and in-game example
+![img_4.png](img_4.png)![img_2.png](img_2.png)
+
