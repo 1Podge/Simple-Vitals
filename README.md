@@ -16,5 +16,4 @@ Keep track of your hiptpoints, prayers, buffs and debuffs!
 * The HUD will remain centered around your character, unless you choose to change the offset values
 
 ### Menu and in-game example
-![img_4.png](img_4.png)![img_2.png](img_2.png)
-
+![img_8.png](img_8.png)![img_9.png](img_9.png)

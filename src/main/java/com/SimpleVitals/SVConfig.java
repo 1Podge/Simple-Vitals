@@ -5,10 +5,6 @@ import net.runelite.client.config.*;
 @ConfigGroup("simplevitals")
 public interface SVConfig extends Config
 {
-// ==========================================
-// 1. SECTION DECLARATIONS
-// ==========================================
-
     @ConfigSection(
             name = "OUTSIDE OF COMBAT",
             description = "Configure when and how the HUD hides outside of combat encounters",
@@ -30,9 +26,12 @@ public interface SVConfig extends Config
     )
     String layoutSection = "layoutSection";
 
-// ==========================================
-// 2. COMBAT & IDLE HIDING SECTION ITEMS
-// ==========================================
+    @ConfigSection(
+            name = "ICON VISIBILITY",
+            description = "Choose which specific icons to display next to the values",
+            position = 3
+    )
+    String iconsSection = "iconsSection";
 
     @ConfigItem(
             keyName = "hideOutOfCombat",
@@ -62,10 +61,6 @@ public interface SVConfig extends Config
     )
     default SVIdleHold idleHold() { return SVIdleHold.ACTIVE_AND_COUNTER; }
 
-// ==========================================
-// 3. LOW VITAL ALERTS SECTION ITEMS
-// ==========================================
-
     @ConfigItem(
             keyName = "alertMode",
             name = "Alerts",
@@ -94,10 +89,6 @@ public interface SVConfig extends Config
             section = alertsSection
     )
     default int prayerThreshold() { return 10; }
-
-// ==========================================
-// 4. LAYOUT & POSITIONING SECTION ITEMS
-// ==========================================
 
     @ConfigItem(
             keyName = "hpSide",
@@ -145,42 +136,123 @@ public interface SVConfig extends Config
     default SVPosition statsSide() { return SVPosition.LEFT; }
 
     @ConfigItem(
-            keyName = "activePrayersSide",
-            name = "Active Prayers",
-            description = "Choose display layout side or turn off",
+            keyName = "hideUnboostedStats",
+            name = "Show altered stats only",
+            description = "Only show combat stats when they are boosted or debuffed",
             position = 5,
             section = layoutSection
     )
-    default SVPosition activePrayersSide() { return SVPosition.RIGHT; }
+    default boolean hideUnboostedStats() { return false; }
+
+    @ConfigItem(
+            keyName = "iconSize",
+            name = "HUD Icon & Text Size",
+            description = "Choose the size of the vitals, combat stats, and their text font",
+            position = 6,
+            section = layoutSection
+    )
+    default SVSize iconSize() { return SVSize.SMALL; }
+
+    @ConfigItem(
+            keyName = "activePrayersSide",
+            name = "Active Prayers",
+            description = "Choose display layout side or turn off",
+            position = 7,
+            section = layoutSection
+    )
+    default SVPrayerPosition activePrayersSide() { return SVPrayerPosition.TOP; }
+
+    @ConfigItem(
+            keyName = "activePrayersSize",
+            name = "Active Prayers Size",
+            description = "Choose the size of the active prayer icons overlay",
+            position = 8,
+            section = layoutSection
+    )
+    default SVSize activePrayersSize() { return SVSize.MEDIUM; }
 
     @Range(min = -500, max = 500)
     @ConfigItem(
             keyName = "leftOffset",
             name = "Adjust left column",
             description = "Adjust horizontal distance for elements on the LEFT side",
-            position = 6,
+            position = 9,
             section = layoutSection
     )
-    default int leftOffset() { return 70; }
+    default int leftOffset() { return 25; }
 
     @Range(min = -500, max = 500)
     @ConfigItem(
             keyName = "rightOffset",
             name = "Adjust right column",
             description = "Adjust horizontal distance for elements on the RIGHT side",
-            position = 7,
+            position = 10,
             section = layoutSection
     )
-    default int rightOffset() { return 35; }
+    default int rightOffset() { return 25; }
 
     @Range(min = -500, max = 500)
     @ConfigItem(
             keyName = "verticalOffset",
             name = "Adjust height",
             description = "Adjust vertical start baseline position up or down",
-            position = 8,
+            position = 11,
             section = layoutSection
     )
     default int verticalOffset() { return 0; }
 
+    @Range(min = -500, max = 500)
+    @ConfigItem(
+            keyName = "prayersVerticalOffset",
+            name = "Adjust prayers height",
+            description = "Adjust vertical start baseline position for TOP/BOTTOM active prayers",
+            position = 12,
+            section = layoutSection
+    )
+    default int prayersVerticalOffset() { return -25; }
+
+    @ConfigItem(
+            keyName = "showHpIcon",
+            name = "Show Hitpoints Icon",
+            description = "Toggle the icon for Hitpoints",
+            position = 0,
+            section = iconsSection
+    )
+    default boolean showHpIcon() { return true; }
+
+    @ConfigItem(
+            keyName = "showPrayerIcon",
+            name = "Show Prayer Icon",
+            description = "Toggle the icon for the Prayer counter",
+            position = 1,
+            section = iconsSection
+    )
+    default boolean showPrayerIcon() { return true; }
+
+    @ConfigItem(
+            keyName = "showRunIcon",
+            name = "Show Run Icon",
+            description = "Toggle the icon for Run Energy",
+            position = 2,
+            section = iconsSection
+    )
+    default boolean showRunIcon() { return true; }
+
+    @ConfigItem(
+            keyName = "showSpecIcon",
+            name = "Show Special Attack Icon",
+            description = "Toggle the icon for Special Attack",
+            position = 3,
+            section = iconsSection
+    )
+    default boolean showSpecIcon() { return true; }
+
+    @ConfigItem(
+            keyName = "showStatsIcons",
+            name = "Show Combat Stats Icons",
+            description = "Toggle the icons for combat boosts (Attack, Strength, etc.)",
+            position = 4,
+            section = iconsSection
+    )
+    default boolean showStatsIcons() { return true; }
 }
