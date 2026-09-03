@@ -75,7 +75,9 @@ public class SVOverlay extends Overlay
 
             if (holdSetting == SVIdleHold.NONE || !prayerOn)
             {
-                return null;
+                // FIX: Return an empty dimension object instead of null.
+                // This informs RuneLite's dynamic layout system to clear the previous frame components.
+                return new Dimension(0, 0);
             }
             else if (holdSetting == SVIdleHold.WHOLE_HUD)
             {
@@ -292,7 +294,9 @@ public class SVOverlay extends Overlay
             }
         }
 
-        return null;
+        // FIX: For DYNAMIC overlays that successfully complete rendering actions, returning an empty dimension
+        // object ensures RuneLite acknowledges structural tracking boundaries correctly without freezing old frames.
+        return new Dimension(0, 0);
     }
 
     private int getSkillSpriteId(Skill skill)
